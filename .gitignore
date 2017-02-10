@@ -17,4 +17,4 @@
 .byebug_history
 
 # Ignore Vim Session file
-# Session.vim
+Session.vim
