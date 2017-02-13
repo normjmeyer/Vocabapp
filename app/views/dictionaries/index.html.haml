@@ -3,7 +3,8 @@
 %table
   %thead
     %tr
-      %th Type
+      %th Name
+      %th Language
       %th
       %th
       %th
@@ -11,7 +12,8 @@
   %tbody
     - @dictionaries.each do |dictionary|
       %tr
-        %td= dictionary.type
+        %td= dictionary.name
+        %td= dictionary.language
         %td= link_to 'Show', dictionary
         %td= link_to 'Edit', edit_dictionary_path(dictionary)
         %td= link_to 'Destroy', dictionary, :method => :delete, :data => { :confirm => 'Are you sure?' }

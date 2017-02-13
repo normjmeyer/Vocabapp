@@ -1,8 +1,11 @@
 %p#notice= notice
 
 %p
-  %b Type:
-  = @dictionary.type
+  %b Name:
+  = @dictionary.name
+%p
+  %b Language:
+  = @dictionary.language
 
 = link_to 'Edit', edit_dictionary_path(@dictionary)
 \|

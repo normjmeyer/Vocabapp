@@ -17,7 +17,7 @@ class DictionariesControllerTest < ActionDispatch::IntegrationTest
 
   test "should create dictionary" do
     assert_difference('Dictionary.count') do
-      post dictionaries_url, params: { dictionary: { type: @dictionary.type } }
+      post dictionaries_url, params: { dictionary: { language: @dictionary.language, name: @dictionary.name } }
     end
 
     assert_redirected_to dictionary_url(Dictionary.last)
@@ -34,7 +34,7 @@ class DictionariesControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should update dictionary" do
-    patch dictionary_url(@dictionary), params: { dictionary: { type: @dictionary.type } }
+    patch dictionary_url(@dictionary), params: { dictionary: { language: @dictionary.language, name: @dictionary.name } }
     assert_redirected_to dictionary_url(@dictionary)
   end
 
