@@ -1,0 +1,24 @@
+%p#notice= notice
+
+%p
+  %b Name:
+  = @word.name
+%p
+  %b Language:
+  = @word.language
+%p
+  %b Word class:
+  = @word.word_class
+%p
+  %b Definition:
+  = @word.definition
+%p
+  %b Comments:
+  = @word.comments
+%p
+  %b Frequency:
+  = @word.frequency
+
+= link_to 'Edit', edit_word_path(@word)
+\|
+= link_to 'Back', words_path
