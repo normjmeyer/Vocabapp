@@ -39,6 +39,8 @@ gem 'jbuilder', '~> 2.5'
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platform: :mri
+  gem 'rspec-rails'
+  gem 'rails-controller-testing'
 end
 
 group :development do
@@ -51,7 +53,6 @@ group :development do
 end
 
 group :test do
-  gem 'rspec-rails'
   gem 'cucumber-rails', :require => false
   gem 'cucumber-rails-training-wheels' # some pre-fabbed step definitions
   gem 'database_cleaner' # to clear Cucumber's test database between runs
