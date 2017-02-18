@@ -4,7 +4,8 @@ class WordsController < ApplicationController
   # GET /words
   # GET /words.json
   def index
-    @words = Word.all
+    dictionary = Dictionary.find(params[:dictionary_id])
+    @words = dictionary.words
   end
 
   # GET /words/1
@@ -14,7 +15,8 @@ class WordsController < ApplicationController
 
   # GET /words/new
   def new
-    @word = Word.new
+    dictionary = Dictionary.find(parmas[:dictionary_id])
+    @word = dictionary.words.build
   end
 
   # GET /words/1/edit
@@ -24,12 +26,13 @@ class WordsController < ApplicationController
   # POST /words
   # POST /words.json
   def create
-    @word = Word.new(word_params)
+    dictionary = Dictionary.find(parmas[:dictionary_id])
+    @word = dictionary.words.create(word_params)
 
     respond_to do |format|
       if @word.save
-        format.html { redirect_to @word, notice: 'Word was successfully created.' }
-        format.json { render :show, status: :created, location: @word }
+        format.html { redirect_to [@word.dictionary, @word], notice: 'Word was successfully created.' }
+        format.json { render :show, status: :created, location: [@word.dictionary,  @word] } #this may be wrong; need to check
       else
         format.html { render :new }
         format.json { render json: @word.errors, status: :unprocessable_entity }
@@ -42,8 +45,8 @@ class WordsController < ApplicationController
   def update
     respond_to do |format|
       if @word.update(word_params)
-        format.html { redirect_to @word, notice: 'Word was successfully updated.' }
-        format.json { render :show, status: :ok, location: @word }
+        format.html { redirect_to [@word.dictionary, @word], notice: 'Word was successfully updated.' }
+        format.json { render :show, status: :ok, location: [@word.dictionary, @word] }
       else
         format.html { render :edit }
         format.json { render json: @word.errors, status: :unprocessable_entity }
@@ -56,7 +59,7 @@ class WordsController < ApplicationController
   def destroy
     @word.destroy
     respond_to do |format|
-      format.html { redirect_to words_url, notice: 'Word was successfully destroyed.' }
+      format.html { redirect_to dictionary_words_url, notice: 'Word was successfully destroyed.' }
       format.json { head :no_content }
     end
   end
@@ -64,7 +67,8 @@ class WordsController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_word
-      @word = Word.find(params[:id])
+      dictionary = Dictionary.find(params[:dictionary_id])
+      @word = dictionary.words.find(params[:id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

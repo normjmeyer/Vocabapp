@@ -7,8 +7,8 @@ RSpec.describe "words/index", type: :view do
         :name => "Name",
         :language => "Language",
         :word_class => "Word Class",
-        :definition => "MyText",
-        :comments => "MyText",
+        :definition => "MyDefinition",
+        :comments => "MyComment",
         :frequency => 2,
         :dictionary => nil
       ),
@@ -16,8 +16,8 @@ RSpec.describe "words/index", type: :view do
         :name => "Name",
         :language => "Language",
         :word_class => "Word Class",
-        :definition => "MyText",
-        :comments => "MyText",
+        :definition => "MyDefinition",
+        :comments => "MyComment",
         :frequency => 2,
         :dictionary => nil
       )
@@ -29,8 +29,8 @@ RSpec.describe "words/index", type: :view do
     assert_select "tr>td", :text => "Name".to_s, :count => 2
     assert_select "tr>td", :text => "Language".to_s, :count => 2
     assert_select "tr>td", :text => "Word Class".to_s, :count => 2
-    assert_select "tr>td", :text => "MyText".to_s, :count => 2
-    assert_select "tr>td", :text => "MyText".to_s, :count => 2
+    assert_select "tr>td", :text => "MyDefinition".to_s, :count => 2
+    assert_select "tr>td", :text => "MyComment".to_s, :count => 2
     assert_select "tr>td", :text => 2.to_s, :count => 2
     assert_select "tr>td", :text => nil.to_s, :count => 2
   end
