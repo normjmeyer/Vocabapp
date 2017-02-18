@@ -9,6 +9,7 @@
       %th Definition
       %th Comments
       %th Frequency
+      %th Dictionary
       %th
       %th
       %th
@@ -22,6 +23,7 @@
         %td= word.definition
         %td= word.comments
         %td= word.frequency
+        %td= word.dictionary
         %td= link_to 'Show', word
         %td= link_to 'Edit', edit_word_path(word)
         %td= link_to 'Destroy', word, :method => :delete, :data => { :confirm => 'Are you sure?' }

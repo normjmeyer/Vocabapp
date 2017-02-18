@@ -9,7 +9,8 @@ RSpec.describe "words/index", type: :view do
         :word_class => "Word Class",
         :definition => "MyText",
         :comments => "MyText",
-        :frequency => 2
+        :frequency => 2,
+        :dictionary => nil
       ),
       Word.create!(
         :name => "Name",
@@ -17,7 +18,8 @@ RSpec.describe "words/index", type: :view do
         :word_class => "Word Class",
         :definition => "MyText",
         :comments => "MyText",
-        :frequency => 2
+        :frequency => 2,
+        :dictionary => nil
       )
     ])
   end
@@ -30,5 +32,6 @@ RSpec.describe "words/index", type: :view do
     assert_select "tr>td", :text => "MyText".to_s, :count => 2
     assert_select "tr>td", :text => "MyText".to_s, :count => 2
     assert_select "tr>td", :text => 2.to_s, :count => 2
+    assert_select "tr>td", :text => nil.to_s, :count => 2
   end
 end

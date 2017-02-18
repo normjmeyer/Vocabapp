@@ -8,7 +8,8 @@ RSpec.describe "words/show", type: :view do
       :word_class => "Word Class",
       :definition => "MyText",
       :comments => "MyText",
-      :frequency => 2
+      :frequency => 2,
+      :dictionary => nil
     ))
   end
 
@@ -20,5 +21,6 @@ RSpec.describe "words/show", type: :view do
     expect(rendered).to match(/MyText/)
     expect(rendered).to match(/MyText/)
     expect(rendered).to match(/2/)
+    expect(rendered).to match(//)
   end
 end

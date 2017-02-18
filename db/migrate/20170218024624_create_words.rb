@@ -7,6 +7,7 @@ class CreateWords < ActiveRecord::Migration[5.0]
       t.text :definition
       t.text :comments
       t.integer :frequency
+      t.references :dictionary, foreign_key: true
 
       t.timestamps
     end

@@ -8,7 +8,8 @@ RSpec.describe "words/edit", type: :view do
       :word_class => "MyString",
       :definition => "MyText",
       :comments => "MyText",
-      :frequency => 1
+      :frequency => 1,
+      :dictionary => nil
     ))
   end
 
@@ -28,6 +29,8 @@ RSpec.describe "words/edit", type: :view do
       assert_select "textarea#word_comments[name=?]", "word[comments]"
 
       assert_select "input#word_frequency[name=?]", "word[frequency]"
+
+      assert_select "input#word_dictionary_id[name=?]", "word[dictionary_id]"
     end
   end
 end
