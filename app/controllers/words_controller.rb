@@ -15,7 +15,7 @@ class WordsController < ApplicationController
 
   # GET /words/new
   def new
-    dictionary = Dictionary.find(parmas[:dictionary_id])
+    dictionary = Dictionary.find(params[:dictionary_id])
     @word = dictionary.words.build
   end
 
@@ -26,7 +26,7 @@ class WordsController < ApplicationController
   # POST /words
   # POST /words.json
   def create
-    dictionary = Dictionary.find(parmas[:dictionary_id])
+    dictionary = Dictionary.find(params[:dictionary_id])
     @word = dictionary.words.create(word_params)
 
     respond_to do |format|

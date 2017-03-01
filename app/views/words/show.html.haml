@@ -20,8 +20,8 @@
   = @word.frequency
 %p
   %b Dictionary:
-  = @word.dictionary
+  = @word.dictionary.name
 
-= link_to 'Edit', edit_word_path(@word)
+= link_to 'Edit', edit_dictionary_word_path(@word.dictionary, @word)
 \|
-= link_to 'Back', words_path
+= link_to 'Back', dictionary_words_path(@word.dictionary)

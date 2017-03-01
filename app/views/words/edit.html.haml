@@ -2,6 +2,6 @@
 
 = render 'form'
 
-= link_to 'Show', @word
+= link_to 'Show', [@word.dictionary, @word]
 \|
-= link_to 'Back', words_path
+= link_to 'Back', dictionary_words_path(@word.dictionary)

@@ -24,8 +24,10 @@
   .field
     = f.label :frequency
     = f.number_field :frequency
-  .field
-    = f.label :dictionary
-    = f.text_field :dictionary
+  -#.field
+    -# debugger
+    -#= f.label :dictionary
+    -#= f.text_field :dictionary
+  %h3= "Dictionary: #{@word.dictionary.name}"
   .actions
     = f.submit 'Save'
