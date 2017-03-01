@@ -22,3 +22,7 @@ Session.vim
 # Ignore swap files
 *.swp
 *.swo
+
+#Ignore secret config files
+/config/database.yml
+/config/secrets.yml
